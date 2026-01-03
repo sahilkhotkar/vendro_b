@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: my-node-backend        # any name
+    env: node
+    plan: free                   # or starter/standard/etc.
+    region: frankfurt            # or oregon/oregon-2 etc.
+
+    # Repo & branch
+    branch: main                 # branch to watch for auto-deploys
+    rootDir: .                   # change if backend is in subfolder
+
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+
+    autoDeploy: true             # auto deploy on every push to branch
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      # Secrets: declare keys here, set values in dashboard
+      - key: DATABASE_URL
+        secret: true
+      - key: JWT_SECRET
+        secret: true
