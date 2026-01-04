@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 // CHANGED: Default to 5000 to avoid conflict with React/Vite defaults
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 10000;
 
 app.use(cors() as any);
 app.use(express.json());
